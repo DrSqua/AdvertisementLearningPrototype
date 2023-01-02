@@ -1,7 +1,7 @@
 from random import randint
 
 from .AdvertisementUtility import AdvertisementUtility
-from FeatureContainer import FeatureContainer
+from DataStructures.FeatureContainer import FeatureContainer
 
 
 class RandIntUtility(AdvertisementUtility):

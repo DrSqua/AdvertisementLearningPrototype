@@ -30,10 +30,13 @@ class FeatureContainer:
         # 'Union[a, b]' is equal to 'a | b', in other words 'a or b'
         """
         self.featureDict[featureName] = int(featureValue)
-        # TODO Optimize storage (differentiate between 0 or 1 and int)
+        # TODO Optimize storage
+        # 1) Us a type of hashtable to convert featurename as str to ID
+        # 2) Differentiate between bool and int? Might have no use
 
     def at(self, featureName: str) -> int:
         return self.featureDict.get(featureName)
+
 
 class FeatureContainerIter:
     def __init__(self, featureContainerKeys: list[str]):
@@ -46,5 +49,5 @@ class FeatureContainerIter:
     def __next__(self):
         if self.featureIndex < len(self.featureContainerKeys):
             self.featureIndex += 1
-            return self.featureContainerKeys[self.featureIndex]
+            return self.featureContainerKeys[self.featureIndex - 1]  # We use -1 because python has no ++i operator
         raise StopIteration

@@ -1,5 +1,5 @@
-from FeatureContainer import FeatureContainer
-from ReinforcedLearning.AdvertisementUtility import AdvertisementUtility
+from DataStructures.FeatureContainer import FeatureContainer
+from Utility.AdvertisementUtility import AdvertisementUtility
 
 
 class AdvertisementSelectorAgent:
@@ -16,7 +16,7 @@ class AdvertisementSelectorAgent:
         """
 
         # Error checking
-        if n < len(advertisementList):
+        if len(advertisementList) < n:
             raise "Fuck you"
 
         # Generating the score for each advertisement

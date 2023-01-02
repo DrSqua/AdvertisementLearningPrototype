@@ -1,6 +1,6 @@
 from abc import ABC
 
-from FeatureContainer import FeatureContainer
+from DataStructures.FeatureContainer import FeatureContainer
 
 
 class AdvertisementUtility(ABC):
