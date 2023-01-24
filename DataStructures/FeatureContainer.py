@@ -2,7 +2,7 @@ from typing import Union
 
 
 class FeatureContainer:
-    def __init__(self, startingDict=None):
+    def __init__(self, startingDict=None) -> None:
         """
         features is a dictionary holding all specified features with corresponding values for a given object
         """
@@ -10,19 +10,16 @@ class FeatureContainer:
             startingDict = {}
         self.featureDict: dict[str, int] = startingDict
 
-        # For making class iterable
-        self.feature_index: int = 0
-
-    def __str__(self):
+    def __str__(self) -> str:
         featureContainerString: str = "FeatureContainer: "
         for key in list(self.featureDict.keys()):
             featureContainerString += str(key) + ", "
         return featureContainerString
 
-    def __iter__(self):
+    def __iter__(self) -> iter:
         return FeatureContainerIter(list(self.featureDict.keys()))
 
-    def push_back(self, featureName: str, featureValue: Union[bool, int]):
+    def push_back(self, featureName: str, featureValue: Union[bool, int]) -> None:
         """
 
         :param featureName:

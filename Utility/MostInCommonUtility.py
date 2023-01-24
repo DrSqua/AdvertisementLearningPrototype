@@ -1,4 +1,4 @@
-from .AdvertisementUtility import AdvertisementUtility
+from Utility.AdvertisementUtility import AdvertisementUtility
 from DataStructures.FeatureContainer import FeatureContainer
 
 

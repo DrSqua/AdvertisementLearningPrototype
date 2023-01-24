@@ -8,7 +8,7 @@ from Utility.MostInCommonUtility import MostInCommonUtility
 if __name__ == '__main__':
     """
     A list of possible features
-    Lid, Gedoopt, Student, FTI, Ingenium Schacht, History_Ingenium_Recreatief, History_Ingenium_Relations
+    Lid, Gedoopt, Student, FTI, Ingenium Schacht
     """
     saved_time: list = [time.time()]
 
@@ -22,8 +22,8 @@ if __name__ == '__main__':
     print("    Set up person2 as: " + str(person2))
 
     advertisement1 = FeatureContainer({"Lid": 1, "Gedoopt": 1, "Ingenium_Schacht": 1})  # Cantus
-    advertisement2 = FeatureContainer({"Student": 1, "FTI": 1, "History_Ingenium_Relations": 0.5})  # Pitchavond
-    advertisement3 = FeatureContainer({"Lid": 1, "Gedoopt": 1, "Student": 1, "History_Ingenium_Recreatief": 1.0})  # TD
+    advertisement2 = FeatureContainer({"Student": 1, "FTI": 1})  # Pitchavond
+    advertisement3 = FeatureContainer({"Lid": 1, "Gedoopt": 1, "Student": 1})  # TD
     advertisement4 = FeatureContainer({"Lid": 1, "Student": 1, "Gedoopt": 1})  # Café Avond
     advertisement5 = FeatureContainer({"Student": 1, "FTI": 1})  # Study sessie
     advertisementList = [advertisement1, advertisement2, advertisement3, advertisement4, advertisement5]
@@ -46,12 +46,11 @@ if __name__ == '__main__':
         print(f"Running algorithm for {n} ads adjusted to {person} ...")
 
         print("    Selecting advertisements with n = " + str(n) + " ... ", end="")
-        selectedAdvertisements = advertisementSelectorAgent.calculate_advertisement_order(2, person1, advertisementList)
+        selectedAdvertisements = advertisementSelectorAgent.calculate_advertisement_order_by_copy(2, person1, advertisementList)
 
         saved_time.append(time.time())
         print(f"Done! {saved_time[-1] - saved_time[-2]}")
 
-        print("    " + str(person1))
         print("    Printing top " + str(n) + " selected algorithms:")
         for ad in selectedAdvertisements:
             print("    " + str(ad))
